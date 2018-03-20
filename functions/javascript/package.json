@@ -1,0 +1,11 @@
+{
+  "name": "openwhisk-debug-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "transform-send-mail.js",
+  "author": "",
+  "license": "ALv2",
+  "dependencies": {
+    "jsonata": "1.5.2"
+  }
+}
