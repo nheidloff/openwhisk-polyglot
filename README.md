@@ -117,7 +117,7 @@ $ fsh app invoke polyglot-demo-nh/send-notification -p id mark -p subject Hello
 
 Here is sample output of the application:
 
-![alt text](screenshots/cli-invoke-app.png "OpenWhisk")
+![alt text](screenshots/session-result.png "OpenWhisk")
 
 
 ## Run Functions Locally
