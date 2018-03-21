@@ -2,6 +2,8 @@ const jsonata = require('jsonata');
 
 let main = params => {   
     try {
+        console.log('transform-send-mail input');
+        console.log(params);
         let inputApplication = params['input-application'];       
         let subject = inputApplication.subject;
         
@@ -17,6 +19,8 @@ let main = params => {
             }
         }        
         
+        console.log('transform-send-mail output');
+        console.log(outputParameters);
         return outputParameters;
     }
     catch (error) {        

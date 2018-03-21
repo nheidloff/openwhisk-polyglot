@@ -5,8 +5,11 @@ const app = express()
 app.use(bodyParser.json());
 
 app.post('/run', (req, res) => {
-    let payload = (req.body || {}).value;
-    let id = payload.id;
+    let params = (req.body || {}).value;
+    console.log('read-person-profile input');
+    console.log(params);
+    let input = params['input'];     
+    let id = params.id;
 
     let result;
     if (id == 'nheidloff') {
@@ -61,6 +64,8 @@ app.post('/run', (req, res) => {
             }
         }
     }
+    console.log('read-person-profile output');
+    console.log(result);
     res.status(200).json(result);
 });
 

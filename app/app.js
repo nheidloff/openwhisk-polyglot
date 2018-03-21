@@ -1,7 +1,7 @@
 composer.try(
     composer.sequence(
-        composer.task('polyglot-demo-nh/transform-read-person-profile', { merge: true }),
-        composer.task('polyglot-demo-nh/read-person-profile', { merge: true }),
+        composer.seq(composer.retain('polyglot-demo-nh/transform-read-person-profile'), ({ params, result }) => Object.assign(params, result)),
+        composer.seq(composer.retain('polyglot-demo-nh/read-person-profile'), ({ params, result }) => Object.assign(params, result)),
         composer.if(
             params => {
                 let output = { value: true }
@@ -12,12 +12,12 @@ composer.try(
                 return output;
             },                        
             composer.sequence(
-                composer.task('polyglot-demo-nh/transform-send-mail', { merge: true }),
-                composer.task('polyglot-demo-nh/send-mail', { merge: true })
+                composer.seq(composer.retain('polyglot-demo-nh/transform-send-mail'), ({ params, result }) => Object.assign(params, result)),
+                composer.seq(composer.retain('polyglot-demo-nh/send-mail'), ({ params, result }) => Object.assign(params, result))
             ),
             composer.sequence(
-                composer.task('polyglot-demo-nh/transform-send-text-message', { merge: true }),
-                composer.task('polyglot-demo-nh/send-text-message', { merge: true })
+                composer.seq(composer.retain('polyglot-demo-nh/transform-send-text-message'), ({ params, result }) => Object.assign(params, result)),
+                composer.seq(composer.retain('polyglot-demo-nh/send-text-message'), ({ params, result }) => Object.assign(params, result))
             )
         )
     ),

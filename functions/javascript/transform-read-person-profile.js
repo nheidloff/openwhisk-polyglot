@@ -1,5 +1,7 @@
 let main = params => {
     try {
+        console.log('transform-read-person-profile input');
+        console.log(params);
         let subject = params.subject;
         let id = params.id;        
 
@@ -12,9 +14,11 @@ let main = params => {
                 'subject': subject
             }
         }
+        console.log('transform-read-person-profile output');
+        console.log(outputParameters);
         return outputParameters;
     }
-    catch (error) {
+    catch (error) {        
         return { // for testing purposes only
             'input': {
                 'id': 'heidloff'
